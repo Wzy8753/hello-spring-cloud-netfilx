@@ -1,0 +1,39 @@
+spring:
+  application:
+    name: hello-spring-cloud-zuul
+
+server:
+  port: 8969
+
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8961/eureka/
+
+zuul:
+#  max:
+#    host:
+#      connections: 500
+  routes:
+    api-a:
+      path: /api/a/**
+      serviceId: spring-cloud-web-admin-ribbon
+    api-b:
+      path: /api/b/**
+      serviceId: spring-cloud-web-admin-feign
+#  host:
+#    connect-timeout-millis: 10000
+#    socket-timeout-millis: 10000
+
+#ribbon:
+#  ReadTimeout: 10000
+#  ConnectTimeout: 10000
+#
+#hystrix:
+#  command:
+#    default:
+#      execution:
+#        isolation:
+#          thread:
+#            timeout-in-milliseconds: 10000

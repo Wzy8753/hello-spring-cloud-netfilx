@@ -1,0 +1,11 @@
+spring:
+  application:
+    name: spring-cloud-service-admin
+
+server:
+  port: 8963
+
+eureka:
+  client:   #没有改成false说明是客户端
+    serviceUrl:
+      defaultZone: http://localhost:8961/eureka/
